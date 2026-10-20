@@ -29,7 +29,17 @@ description: Rules for writing and reviewing code: the shortest version that wor
   - Every name, constant and mechanism uses the proposal's wording.
   - Every number the proposal states is a named constant.
   - Every claim the proposal makes has a test that checks it.
-- **UI carries no explanatory text.** A feature's name is its explanation. Keep
-  only text the screen does not already show: an error, a count, a date, or
-  what an action will destroy. Every animation is one the user can explain step
-  by step.
+- **UI carries no descriptions or instructions.** Most features are obvious
+  from the controls themselves, and the people using an app already know the
+  job. A feature's name is its whole explanation. Never stack text under it: no
+  subheading that restates the name, no sentence saying what the feature does,
+  no hint text walking through the steps, no footer saying how it works. A
+  panel titled "Price Alerts" gets its alerts and its controls. It does not get
+  "Get notified when prices move" under the title or "How it works: we compare
+  the latest price with your target" at the bottom.
+  - Keep only text that carries what the screen does not already show: an
+    error, a count, a date, a sender, or what an action will destroy that its
+    label does not say.
+  - Test each string. If it would still be true on a different screen, or the
+    user could write it themselves after one look, delete it.
+  - Every animation is one the user can explain step by step.
