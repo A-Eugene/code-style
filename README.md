@@ -1,12 +1,12 @@
 # code-style
 
-A Claude Code skill with shared coding rules.
-
-Install for every repo on your machine:
+A Claude Code skill with shared coding rules. Load it on any turn that writes,
+edits or reviews code.
 
 ```bash
-git clone https://github.com/A-Eugene/code-style ~/.claude/skills/code-style
+git clone https://github.com/A-Eugene/code-style && code-style/install.sh
 ```
 
-Or for one repo, clone it into that repo's `.claude/skills/code-style`.
-For agents that read `AGENTS.md` (Codex, Antigravity), include `SKILL.md` from there.
+`install.sh` copies the skill into `~/.claude/skills/code-style`. Add `--codex`
+to also write it into `~/.codex/AGENTS.md`. For one repo only, copy `SKILL.md`
+into that repo's `.claude/skills/code-style/`.
