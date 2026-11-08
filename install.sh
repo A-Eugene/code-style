@@ -30,3 +30,5 @@ print(f"installed: {name} block in {path}")
 CODEX
 fi
 echo "claude.ai: download the GitHub zip (Code > Download ZIP) and upload it under Settings > Customize > Skills"
+echo "To load it reliably, add this line to the \"Skills to load\" block in ~/.claude/CLAUDE.md:"
+echo "- code-style: any turn that writes, edits or reviews code."
