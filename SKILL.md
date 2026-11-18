@@ -1,6 +1,6 @@
 ---
 name: code-style
-description: Rules for writing and reviewing code: the shortest version that works, one job per function or module, names that make the flow readable, typed signatures and typed constants, keyword arguments, files ordered as you would explain them, classes only where data lives, qualified calls, entry points apart from libraries, following the codebase, errors that surface, comments that say why, tests that fail on broken code, code that matches the proposal it implements, and UI without explanatory text. Load it on any turn that writes, edits or reviews code.
+description: Rules for writing and reviewing code: the shortest version that works, one job per function or module, names that make the flow readable, typed signatures and typed constants, keyword arguments, files ordered as you would explain them, classes only where data lives, qualified calls, entry points apart from libraries, following the codebase, no suppressed type or lint errors, a check for any mistake made twice, errors that surface, comments that say why, tests that fail on broken code, code that matches the proposal it implements, and UI without explanatory text. Load it on any turn that writes, edits or reviews code.
 ---
 
 # code-style
@@ -26,6 +26,10 @@ description: Rules for writing and reviewing code: the shortest version that wor
   (`Cells`). Run the language's strict type checker where the project has one,
   such as `mypy --strict`, `"strict": true` in tsconfig, or the compiler's
   warnings as errors.
+- **Fix the cause of a type or lint error. Never suppress it.** No
+  `# type: ignore`, `# noqa`, `eslint-disable`, `as any` or `@Suppress` to
+  make a check pass. When the checker itself is wrong, suppress that one line
+  and say why in its comment.
 - **The type goes in the annotation, not the name.** Write `cells: Cells`, not
   `cells_tuple`. Collections are plural, booleans start with `is` or `has`,
   counts start or end with `count`, and maps are named `X_by_Y`. Follow the
@@ -72,6 +76,9 @@ description: Rules for writing and reviewing code: the shortest version that wor
 - **Follow the codebase.** Before adding a pattern, find how the repository
   already solves the same problem and do it that way. A second way of doing
   one thing is a cost every reader pays.
+- **A mistake made twice in one repository becomes a check.** Add a lint
+  rule, a type, or a test that fails on it. A line in CLAUDE.md or a comment
+  does not stop the next agent from making it a third time.
 - **Let errors surface.** Catch an error only where the code can act on it:
   retry, fall back, or report it to the user. Never catch around code that
   cannot fail, never swallow an error silently, and never log and carry on
